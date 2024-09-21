@@ -1,0 +1,273 @@
+<html>
+<head>
+    <title>Quick Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Image Folder/accessSymbol.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #1c1c1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1;
+            padding: 10px 20px;
+            overflow-y: auto;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #000000;
+            padding: 10px 0;
+        }
+        .section {
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: 14px;
+            color: #a1a1a1;
+            margin-bottom: 5px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #3a3a3c;
+        }
+        .item-icon {
+            background-color: #3a3a3c;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 10px;
+            color: #007aff;
+        }
+        .symbol{
+            width: 2%;
+        }
+        .item-text {
+            flex-grow: 1;
+            font-size: 16px;
+        }
+        .item-arrow {
+            background-color: rgba(58, 58, 60, 0.5);
+            border-radius: 50%;
+            padding: 8px;
+        }
+        .item-arrow i {
+            color: #007aff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000000;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .footer-item {
+            text-align: center;
+            color: #a1a1a1;
+            font-size: 11px;
+        }
+        .footer-item.active {
+            color: #007aff;
+        }
+        .footer-item i {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        @media (min-width: 768px) {
+            .container {
+                padding: 20px 40px;
+            }
+            .header {
+                font-size: 28px;
+                padding: 15px 0;
+            }
+            .item {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            .item-icon {
+                padding: 15px;
+                margin-right: 15px;
+            }
+            .item-text {
+                font-size: 18px;
+            }
+            .item-arrow {
+                padding: 10px;
+            }
+            .item-arrow i {
+                font-size: 18px;
+            }
+            .footer-item i {
+                font-size: 24px;
+            }
+            
+        }
+        @media (min-width: 1024px) {
+            .container {
+                padding: 30px 60px;
+            }
+            .header {
+                font-size: 32px;
+                padding: 20px 0;
+            }
+            .item {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+            .item-icon {
+                padding: 20px;
+                margin-right: 20px;
+            }
+            .item-text {
+                font-size: 20px;
+            }
+            .item-arrow {
+                padding: 12px;
+            }
+            .item-arrow i {
+                font-size: 20px;
+            }
+            .footer-item i {
+                font-size: 28px;
+            }
+           
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Quick Services</div>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Transfers</div>
+            <div class="item">
+                <div class="item-icon symbol">
+                    <!-- <i class="fas fa-diamond"></i> -->
+                    <img src="./Image Folder/accessSymbol.png" style="width: 108%; color: #007aff !important;" alt="">
+                </div>
+                <div class="item-text">Access to Access</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="item-text">Other Banks</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="item-text">Nearby Payment</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Payments</div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="item-text">Bills Payment</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="item-text">Mobile Topup</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="item-text">LCC Lookup</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="item-text">BreezePay</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="item-text">My QR</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="item-text">Generate QR</div>
+                <div class="item-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-item">
+            <i class="fas fa-sign-in-alt"></i>
+            <div onclick="location.href='login.html'">Login</div>
+        </div>
+        <div class="footer-item active">
+            <i class="fas fa-th-large"></i>
+            <div onclick="location.href='QuickServices.html'">Quick Services</div>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-qrcode"></i>
+            <div onclick="location.href='Scan.html'">Scan</div>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-headset"></i>
+            <div onclick="location.href='support.html'">Support</div>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-cog"></i>
+            <div onclick="location.href='Settings.html'">Settings</div>
+        </div>
+    </div>
+
+</body>
+</html>

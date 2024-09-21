@@ -1,0 +1,480 @@
+<html>
+ <head>
+  <title>
+   Access App
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<link rel="stylesheet" href="preloader.html">
+<link rel="stylesheet" href="preloader.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 24px;
+        }
+        .header .icon {
+            font-size: 24px;
+        }
+        .header img {
+            height: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 25px; /* Moved down a bit more */
+        }
+        .favorites {
+            margin-top: 20px;
+        }
+        .favorites h2 {
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .favorites h2 .edit {
+            color: #007bff;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .favorites h2 .edit i {
+            margin-right: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .grid-item {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            position: relative;
+        }
+        .grid-item .new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .grid-item i {
+            font-size: 24px;
+            color: #007bff;
+        }
+        .grid-item p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .show-all {
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .show-all i {
+            font-size: 18px;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section h2 .more {
+            color: #007bff;
+            font-size: 14px;
+        }
+        .featured {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .featured img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #111;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer i {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .footer i.active {
+            color: #007bff;
+        }
+        .footer div {
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 12px;
+            color: #fff;
+        }
+        .dropdown {
+            display: none;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .dropdown .country {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .dropdown .country img {
+            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .dropdown .country p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .header img {
+                height: 25px;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-top: 23px; /* Adjusted to match the new margin */
+            }
+            .header .icon {
+                font-size: 20px;
+            }
+            .favorites h2 {
+                font-size: 16px;
+            }
+            .favorites h2 .edit {
+                font-size: 12px;
+            }
+            .grid-item {
+                padding: 15px;
+            }
+            .grid-item i {
+                font-size: 20px;
+            }
+            .grid-item p {
+                font-size: 12px;
+            }
+            .show-all i {
+                font-size: 16px;
+            }
+            .section h2 {
+                font-size: 16px;
+            }
+            .section h2 .more {
+                font-size: 12px;
+            }
+            .footer i {
+                font-size: 20px;
+            }
+            .footer p {
+                font-size: 10px;
+            }
+        }
+  </style>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.footer i');
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    icons.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            const dropdownToggle = document.querySelector('.show-all');
+            const dropdown = document.querySelector('.dropdown');
+            dropdownToggle.addEventListener('click', function() {
+                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+  </script>
+ </head>
+ <body>
+
+    <body class="loading">
+
+  <div class="container">
+   <div class="header">
+    <div>
+     <p>
+      Good afternoon,
+     </p>
+     <h1>
+      Kingsley
+     </h1>
+    </div>
+    <div onclick="location.href='index.html'" style="cursor: pointer;">
+     <img alt="Access Logo" height="30" src="./Image Folder/accessLogo.png" width="100" style="margin-top: 25px;"/>
+     <class= class="fas fa-bell icon">
+     </i>
+    </div>
+   </div>
+   <div class="favorites">
+    <h2>
+     My favorites
+     <span class="edit">
+      <i class="fas fa-pen">
+      </i>
+      Edit
+     </span>
+    </h2>
+    <div class="grid">
+     <div class="grid-item">
+      <i class="fas fa-gem">
+      </i>
+      <p>
+       Rewards &amp; Referral
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-wind">
+      </i>
+      <p>
+       BreezePay
+      </p>
+      <div class="new">
+       New
+      </div>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-exchange-alt">
+      </i>
+      <p>
+       Access Transfers
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-university">
+      </i>
+      <p>
+       Other Banks Transfers
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-mobile-alt">
+      </i>
+      <p>
+       Airtime &amp; Data Top-up
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-futbol">
+      </i>
+      <p>
+       Sport Wallet Funding
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-file-invoice">
+      </i>
+      <p>
+       Bills Payment
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-globe">
+      </i>
+      <p>
+       International Airtime
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-hand-holding-usd">
+      </i>
+      <p>
+       Loans
+      </p>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-chart-line">
+      </i>
+      <p>
+       Wealth and Investment Management
+      </p>
+      <div class="new">
+       New
+      </div>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-gift">
+      </i>
+      <p>
+       eVoucher (Gift Cards)
+      </p>
+      <div class="new">
+       New
+      </div>
+     </div>
+     <div class="grid-item">
+      <i class="fas fa-history">
+      </i>
+      <p>
+       Transaction History
+      </p>
+     </div>
+    </div>
+    <div class="show-all">
+     <p>
+      Show All
+      <i class="fas fa-chevron-down">
+      </i>
+     </p>
+    </div>
+    <div class="dropdown">
+     <div class="country">
+      <img alt="Nigeria Flag" src="https://flagcdn.com/w320/ng.png"/>
+      <p>
+       Nigeria
+      </p>
+     </div>
+     <div class="country">
+      <img alt="Kenya Flag" src="https://flagcdn.com/w320/ke.png"/>
+      <p>
+       Kenya
+      </p>
+     </div>
+     <div class="country">
+      <img alt="South Africa Flag" src="https://flagcdn.com/w320/za.png"/>
+      <p>
+       South Africa
+      </p>
+     </div>
+     <div class="country">
+      <img alt="Ghana Flag" src="https://flagcdn.com/w320/gh.png"/>
+      <p>
+       Ghana
+      </p>
+     </div>
+     <div class="country">
+      <img alt="Egypt Flag" src="https://flagcdn.com/w320/eg.png"/>
+      <p>
+       Egypt
+      </p>
+     </div>
+     <div class="country">
+      <img alt="Morocco Flag" src="https://flagcdn.com/w320/ma.png"/>
+      <p>
+       Morocco
+      </p>
+     </div>
+     <!-- Add more countries as needed -->
+    </div>
+   </div>
+   <div class="section">
+    <h2>
+     1-Tap Payment
+     <i class="fas fa-chevron-down">
+     </i>
+    </h2>
+   </div>
+   <div class="section">
+    <h2>
+     Featured
+     <span class="more">
+      More
+     </span>
+    </h2>
+    <div class="featured">
+     <img alt="Activate your Wealth - Your financial future awaits. Seize it now and unlock unlimited possibilities with Access More App." height="300" src="./Image Folder/accesspic1.jpeg" width="600"/>
+    </div>
+   </div>
+  </div>
+  <div class="footer">
+   <div onclick="location.href='index.html'">
+    <i class="fas fa-home">
+    </i>
+    <p>
+     Home
+    </p>
+   </div>
+   <div onclick="location.href='QuickServices.html'">
+    <i class="fas fa-qrcode">
+    </i>
+    <p>
+     MyAccess
+    </p>
+   </div>
+   <div onclick="location.href='Scan.html'">
+    <i class="fas fa-qrcode">
+    </i>
+    <p>
+     Scan
+    </p>
+   </div>
+   <div onclick="location.href='Support.html'">
+    <i class="fas fa-headset">
+    </i>
+    <p>
+     Support
+    </p>
+   </div>
+   <div onclick="location.href='Breezepay.html'">
+    <i class="fas fa-user">
+    </i>
+    <p>
+     Profile
+    </p>
+   </div>
+  </div>
+
+  <div class="preloader">
+    <div class="image-loader">
+      <img src="./Image Folder/accessSymbol.png" alt="Loader Image">
+    </div>
+  </div>
+
+  <script src="preloader.js"></script>
+
+ </body>
+</html>

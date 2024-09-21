@@ -1,0 +1,351 @@
+<html>
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Image Folder/accessSymbol.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #1c1c1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header .camera-icon {
+            font-size: 50px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .header .bell-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        .section {
+            background-color: #2c2c2e;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .section h2 {
+            font-size: 16px;
+            margin: 0 0 10px 0;
+        }
+        .section .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #3a3a3c;
+        }
+        .section .item:last-child {
+            border-bottom: none;
+        }
+        .section .item .icon-wrapper {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .section .item .icon-wrapper i {
+            font-size: 24px;
+            color: #007aff;
+        }
+        .section .item .text {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        .section .item .toggle {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background-color: #3a3a3c;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .section .item .toggle:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .section .item .toggle.active {
+            background-color: #ff9500;
+        }
+        .section .item .toggle.active:before {
+            left: 22px;
+        }
+        .appearance-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            background-color: #000000;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .appearance-options .option {
+            flex-grow: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .appearance-options .option.active {
+            background-color: #007aff;
+        }
+        .theme-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .theme-options .theme {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+        .theme-options .theme.active:after {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000000;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            cursor: pointer;
+        }
+        .footer .icon {
+            text-align: center;
+            color: #ffffff;
+        }
+        .footer .icon.active {
+            color: #007aff;
+        }
+        .footer .icon i {
+            font-size: 24px;
+        }
+        .footer .icon p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+        }
+
+        body.dark-mode {
+  background-color: #1c1c1e;
+  color: white;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
+        @media (max-width: 768px) {
+            .header .camera-icon {
+                font-size: 40px;
+                padding: 15px;
+            }
+            .header .bell-icon {
+                font-size: 20px;
+            }
+            .section h2 {
+                font-size: 14px;
+            }
+            .section .item .icon-wrapper i {
+                font-size: 20px;
+            }
+            .footer .icon i {
+                font-size: 20px;
+            }
+            .footer .icon p {
+                font-size: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .header .camera-icon {
+                font-size: 30px;
+                padding: 10px;
+            }
+            .header .bell-icon {
+                font-size: 18px;
+            }
+            .section h2 {
+                font-size: 12px;
+            }
+            .section .item .icon-wrapper i {
+                font-size: 18px;
+            }
+            .footer .icon i {
+                font-size: 18px;
+            }
+            .footer .icon p {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Settings</h1>
+            <div class="camera-icon">
+                <i class="fas fa-camera"></i>
+            </div>
+            <div class="bell-icon">
+                <i class="fas fa-bell"></i>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Privacy and Security</h2>
+            <div class="item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="text">Auto Login on app start</div>
+                <div class="toggle"></div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Appearance</h2>
+            <div class="appearance-options">
+                <div class="option active">Dark</div>
+                <div class="option">Light</div>
+                <div class="option">System Default</div>
+            </div>
+            <div class="item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="text">Theme</div>
+                <div class="theme-options">
+                    <div class="theme active" style="background-color: #007aff;"></div>
+                    <div class="theme" style="background-color: #34c759;"></div>
+                    <div class="theme" style="background-color: #ff9500;"></div>
+                    <div class="theme" style="background-color: #004d00;"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-icons"></i>
+                </div>
+                <div class="text">App Icon</div>
+                <div class="theme-options">
+                    <div class="theme" style="background-color: #ffffff; border: 1px solid #3a3a3c;"></div>
+                    <div class="theme active" style="background-color: #3a3a3c;"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="text">Intro Video</div>
+                <div class="toggle"></div>
+            </div>
+            <div class="item">
+                <div class="icon-wrapper">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="text">Product Suggestions</div>
+                <div class="toggle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="icon">
+            <i class="fas fa-lock"></i>
+            <p onclick="location.href='login.html'">Login</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-tools"></i>
+            <p onclick="location.href='QuickServices.html'">Quick Services</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-qrcode"></i>
+            <p onclick="location.href='Scan.html'">Scan</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-headset"></i>
+            <p onclick="location.href='Support.html'">Support</p>
+        </div>
+        <div class="icon active">
+            <i class="fas fa-cog"></i>
+            <p onclick="location.href='Settings.html'">Settings</p>
+        </div>
+    </div>
+    <script>
+        // Toggle functionality
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Appearance options functionality
+        document.querySelectorAll('.appearance-options .option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.appearance-options .option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Theme options functionality
+        document.querySelectorAll('.theme-options .theme').forEach(theme => {
+            theme.addEventListener('click', () => {
+                document.querySelectorAll('.theme-options .theme').forEach(th => th.classList.remove('active'));
+                theme.classList.add('active');
+            });
+        });
+
+        // Footer navigation functionality
+        document.querySelectorAll('.footer .icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                document.querySelectorAll('.footer .icon').forEach(ic => ic.classList.remove('active'));
+                icon.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.appearance-options .option').forEach(option => {
+  option.addEventListener('click', () => {
+    document.querySelectorAll('.appearance-options .option').forEach(opt => opt.classList.remove('active'));
+    option.classList.add('active');
+
+    const mode = option.textContent.toLowerCase();
+    document.body.classList.remove('dark-mode', 'light-mode', 'system-default-mode');
+    document.body.classList.add(`${mode}-mode`);
+  });
+});
+    </script>
+</body>
+</html>

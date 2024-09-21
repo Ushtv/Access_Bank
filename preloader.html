@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="preloader.css"> -->
+    <title>preloader</title>
+
+    <style>
+     
+
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader">
+          <svg viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+          </svg>
+        </div>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+        <div class="loading-text">Loading...</div>
+      </div>
+
+      <script>
+        let progressBar = document.querySelector('.progress');
+let loadingText = document.querySelector('.loading-text');
+
+let loadCount = 0;
+let loadTotal = 100;
+
+function updateProgress() {
+  loadCount++;
+  let progressPercent = (loadCount / loadTotal) * 100;
+  progressBar.style.width = `${progressPercent}%`;
+  loadingText.textContent = `Loading... ${Math.floor(progressPercent)}%`;
+  
+  if (loadCount === loadTotal) {
+    document.body.classList.remove('loading');
+  }
+}
+
+// Simulate loading process
+setInterval(updateProgress, 50);
+
+document.body.classList.add('loading');
+
+      </script>
+      
+</body>
+</html>

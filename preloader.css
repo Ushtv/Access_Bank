@@ -1,0 +1,46 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1e; /* match your page background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* make sure it's on top of everything */
+  }
+  
+  .image-loader {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    animation: fade-in 2s ease-in-out;
+  }
+  
+  .image-loader img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body.loading {
+    overflow: hidden; /* prevent scrolling while preloader is visible */
+  }
+  
+  body.loading .preloader {
+    display: flex; /* show the preloader */
+  }
+  
+  body:not(.loading) .preloader {
+    display: none; /* hide the preloader when loading class is removed */
+  }

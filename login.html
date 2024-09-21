@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="./Image Folder/accessSymbol.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{
+            background-color: rgb(22, 2, 2);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .body {
+            position: absolute;
+            top: -360px;
+            left: 70%;
+            width: 30%;
+            height: 80vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.03;
+        }
+        .body2 {
+            position: absolute;
+            top: 30px;
+            left: -15%;
+            width: 30%;
+            height: 100vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.03;
+        }
+
+        /* starts here */
+        body {
+            margin: 0;
+            /* font-family: 'Arial', sans-serif; */
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+        .image{
+            cursor: pointer;
+        }
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            
+        }
+        .logo img {
+            height: 40px;
+        }
+        .logo .icons {
+            display: flex;
+            align-items: center;
+        }
+        .logo .icons i, .logo .icons img {
+            margin-left: 10px;
+        }
+        .welcome {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: grey !important;
+        }
+        .not{
+            color: grey;
+        }
+        .welcome span {
+            font-weight: bold;
+            color: white;
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .input-container{
+            width: 87%;
+        }
+        .input-container i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        .forgot-password {
+            color: #00f;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 20px;
+            text-align: right;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: rgb(255, 115, 0);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .unlock-device {
+            color: #00f;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #00f;
+            text-decoration: none;
+        }
+        .footer .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .footer .buttons .btn {
+            background-color: rgba(0, 85, 255, 0.167);
+            color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            width: 45%;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            
+        }
+        .navbar a {
+            color: #888;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .navbar a i {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .navbar a.active {
+            color: blue;
+        }
+
+        @media (max-width: 768px) {
+            .body {
+            position: absolute;
+            top: -30px;
+            left: 3%;
+            width: 67%;
+            height: 100vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.05;
+        }
+        .body2 {
+            position: absolute;
+            top: -30px;
+            left: -33%;
+            width: 67%;
+            height: 100vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.05;
+        }
+            .body3 {
+            position: absolute;
+            top: -350px;
+            left: 50%;
+            width: 50%;
+            height: 100vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.03;
+        }
+        .body4 {
+            position: absolute;
+            top: -350px;
+            left: 47%;
+            width: 53%;
+            height: 100vh;
+            background-image: url('./Image Folder/accessSymbol.png');
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            opacity: 0.03;
+        }
+
+        /* <!-- starts here --> */
+        /* @media (max-width: 600px) { */
+            .container {
+                padding: 8px;
+            }
+            .logo img {
+                height: 40px;
+                margin-left: 15px;
+            }
+            .logo .icons i, .logo .icons img {
+                margin-left: 15px;
+            }
+            .welcome {
+                font-size: 1em;
+            }
+            .forgot-password {
+               margin-right: 6%;
+            }
+            .input-container{
+                width: 80%;
+                margin-left: 4%;
+                
+            }
+            .input-container input {
+                padding: 8px;
+                padding-left: 35px;
+            }
+            /* .btn {
+                padding: 8px;
+                font-size: 0.9em;
+            } */
+            .btn {
+  width: 90%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+            .footer .buttons .btn {
+                padding: 8px;
+                width: 48%;
+            }
+            .navbar a {
+                font-size: 0.7em;
+            }
+            .navbar a i {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="body"></div>
+    <div class="body2"></div>
+
+    <div class="body3"></div>
+    <div class="body4"></div>
+
+    
+    <div class="container">
+        <div onclick="location.href='index.html'" class="logo">
+            <img class="image" href="index.html" src="./Image Folder/accessLogo.png" alt="Access Bank Logo" width="45%" height="100vh">
+            <div class="icons">
+                <i class="fas fa-bell"></i>
+                <img src="./Image Folder/nigerian flag.png" alt="Nigeria Flag" width="45%" height="20">
+                <i class="fas fa-caret-down"></i>
+            </div> 
+        </div> <br><br><br><br><br><br>
+        <div class="welcome">Welcome back, <span>Kingsley</span></div>
+
+        <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password">
+        </div>
+
+        <a class="forgot-password" href="ForgotPassword.html">Forgot Password?</a>
+
+        <button onclick="location.href='Biometrics.html'" class="btn">SIGN IN WITH BIOMETRICS</button> <br><br>
+
+        <a class="unlock-device" href="#"><span class="not">Not Kingsley?</span> Unlock device</a><br><br><br>
+
+        <div class="footer">
+            <a onclick="location.href='https://ibank.accessbankplc.com/auth/login/'" href="#">Internet Banking <i class="fas fa-external-link-alt"></i></a>
+            <div class="buttons">
+                <button class="btn">1-Tap Payments <i class="far fa-star"  style="margin-left: 7px;"></i></button>
+                <button onclick="location.href='BreezePay.html'" class="btn">BreezePay  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16" style="margin-left: 10px;">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+                </svg> </button>
+            </div>
+            <div class="copyright">© Access Bank PLC. (Licensed by the Central Bank of Nigeria)</div>
+        </div>
+    </div>
+
+    <div class="navbar" id="navbar">
+        <a class="active" href="#"><i class="fas fa-lock"></i>Login</a>
+        <a href="QuickServices.html"><i class="fas fa-bolt"></i>Quick Services</a>
+        <a href="Scan.html"><i class="fas fa-qrcode"></i>Scan</a>
+        <a href="Support.html"><i class="fas fa-headset"></i>Support</a>
+        <a href="Settings.html"><i class="fas fa-cog"></i>Settings</a>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const navbar = document.getElementById('navbar');
+const links = navbar.querySelectorAll('a');
+
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    links.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+$('#navbar a').click(function() {
+  $('#navbar a').removeClass('active');
+  $(this).addClass('active');
+});
+    </script>
+</body>
+</html>
